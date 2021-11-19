@@ -1,0 +1,61 @@
+<resources>
+
+    <string name="myAppID" translatable="false">ca-app-pub-5378772716460991~5141155975</string>
+
+    <string name="Eagle_Banner" translatable="false">ca-app-pub-5378772716460991/7575747624</string>
+    <string name="Eagle_Interstitial" translatable="false">ca-app-pub-5378772716460991/9682395583</string>
+    <string name="List_Banner" translatable="false">ca-app-pub-5378772716460991/6930369075</string>
+    <string name="List_Interstitial" translatable="false">ca-app-pub-5378772716460991/6738797386</string>
+
+
+    <string name="app_name">Professional Proxy</string>
+    <string name="address_pri" translatable="false">https://professional-proxy.flycricket.io/privacy.html</string>
+    <string name="wait">Please Wait …</string>
+    <string name="shareUs">\n I installed this application and connected to the unlimited and unfiltered telegram just with one click, try it too. \n\n</string>
+
+    <string name="nextPage">Next</string>
+    <string name="prePage">Back</string>
+    <string name="proxyList">Proxy List</string>
+
+    <string name="installTel">Install the Telegram to use the proxy</string>
+    <string name="moreProxy">"\n \n to access more FREE, FAST and POWERFUL proxies, please click on the link below: \n\n"</string>
+
+    <string name="yourIdea">What do you think about our application?</string>
+    <string name="veryGood">Great</string>
+    <string name="notGood">Not Good</string>
+    <string name="notGood2">Exit</string>
+    <string name="doYouRateUs">Please take a moment and rate us on Google Play</string>
+    <string name="yes">Ok</string>
+    <string name="no">Nope</string>
+    <string name="no2">Exit</string>
+
+    <string name="headLine1">Access to daily proxy list</string>
+    <string name="headLine2">How to use proxy</string>
+    <string name="headLine3">How to active proxy </string>
+    <string name="description1">After entering the program, touch the above button to access the daily proxy list.</string>
+    <string name="description2">you will see all the proxies like the above image, to use the proxy, please touch the "CONNECT TO TELEGRAM" button.</string>
+    <string name="description3">after touching the "Telegram" or "Other Telegram" button in the previous step, you will direct to telegram
+                                application, for active the proxy please touch the "Connect Proxy" button.</string>
+    <string name="eagleDesc">Tap the shield to access the proxy list</string>
+    <string name="howToUse">How To Use</string>
+    <string name="updateDesc">The following proxies will be updated every few hours. If not successful to connect the proxy, please visit the application in a few hours.</string>
+    <string name="OffcialTel">Connect To Telegram</string>
+
+    <string name="Language">Language</string>
+    <string name="LanguageDescption">Choose Your Language</string>
+    <string name="LanguagePersian" translatable="false">فارسی</string>
+    <string name="LanguageEnglish" translatable="false">Enlish</string>
+
+    <string name="useProxy">Use the following proxy to connect to Telegram \n\n</string>
+    <string name="ChooseLanguage">Choose Language</string>
+
+    <string name="Fupdate">A new version of the application is available and is required to continue.</string>
+    <string name="FupdatePositiveButton">Update Me</string>
+    <string name="FupdateNegativeButton">Exit App!</string>
+
+    <string name="Oupdate">A new version of the application is available, Please update.</string>
+    <string name="OupdatePositiveButton">Update Me</string>
+    <string name="OupdateNegativeButton">Next Time</string>
+
+
+</resources>

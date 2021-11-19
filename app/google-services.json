@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1064121646742",
+    "firebase_url": "https://telegram-proxy-15f42.firebaseio.com",
+    "project_id": "telegram-proxy-15f42",
+    "storage_bucket": "telegram-proxy-15f42.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1064121646742:android:98a7eb361afb4cb8604cb7",
+        "android_client_info": {
+          "package_name": "com.hurhco.telegramPro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1064121646742-lvqsjvkkjqgr65r2pbqg08ssfrree4l4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hurhco.telegramPro",
+            "certificate_hash": "57c430e15406a6404162ca5972621c4c4f7b445f"
+          }
+        },
+        {
+          "client_id": "1064121646742-quhhh4bf3mepftkvr4eqfa69640l9hg1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPf3CSRXESQRhY_tDjYiMQqWrtO8Tn8Dg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1064121646742-quhhh4bf3mepftkvr4eqfa69640l9hg1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

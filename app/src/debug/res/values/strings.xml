@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="myAppID" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
+
+    <string name="Eagle_Banner" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="Eagle_Interstitial" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="List_Banner" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="List_Interstitial" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
+
+</resources>

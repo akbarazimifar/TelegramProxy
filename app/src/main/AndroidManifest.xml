@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.hurhco.telegramPro">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <application
+        android:name="com.hurhco.telegramPro.Main"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="false"
+        android:largeHeap="true"
+        tools:replace="android:supportsRtl"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+
+        <activity
+            android:name="com.hurhco.telegramPro.Splash"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.hurhco.telegramPro.FirstActivity"
+            tools:ignore="LockedOrientationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+        </activity>
+
+        <activity
+            tools:ignore="LockedOrientationActivity"
+            android:name="com.hurhco.telegramPro.GuideActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            tools:ignore="LockedOrientationActivity"
+            android:name="com.hurhco.telegramPro.ProxyActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <service android:name=".FirebaseMessagingServiceListener">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/myAppID"/>
+    </application>
+
+</manifest>

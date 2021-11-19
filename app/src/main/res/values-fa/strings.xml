@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Professional Proxy</string>
+    <string name="wait">لطفا کمی صبر کنید …</string>
+    <string name="shareUs">\n .من این برنامه را نصب کردم و با یک کلیک به تلگرام متصل شدم. شما هم امتحان کنید \n\n</string>
+
+
+    <string name="nextPage">صفحه بعد</string>
+    <string name="prePage">صفحه قبل</string>
+    <string name="proxyList">لیست پروکسی ها</string>
+
+
+
+    <string name="installTel">برای استفاده از پروکسی تلگرام را نصب کنید</string>
+    <string name="moreProxy">"\n \n برای دسترسی به پروکسی های پرسرعت تلگرام بر روی لینک زیر کلیک کنید \n\n"</string>
+    <string name="useProxy"> \n\n برای اتصال به تلگرام از پروکسی زیر استفاده کنید \n \n</string>
+
+
+    <string name="yourIdea">نظر شما در مورد برنامه ما چیست؟</string>
+    <string name="veryGood">عالیه</string>
+    <string name="notGood">خوب نیست</string>
+    <string name="notGood2">خروج</string>
+    <string name="doYouRateUs">آیا در مارکت پلی استور به ما نظر می دهید؟</string>
+    <string name="yes">بله</string>
+    <string name="no">خیر</string>
+    <string name="no2">خروج</string>
+
+
+    <string name="headLine1">نمایش لیست پروکسی ها روزانه</string>
+    <string name="headLine2">نحوه استفاده از پروکسی</string>
+    <string name="headLine3">فعال سازی پروکسی</string>
+    <string name="description1">پس از ورود به برنامه، دکمه بالا را لمس کنید، تا لیست پروکسی های روزانه را مشاهده کنید.</string>
+    <string name="description2">لیست تمامی پروکسی های پرسرعت روز را مانند تصویر بالا می توانید مشاهده کنید و دکمه اتصال به تلگرام را لمس کنید تا پروکسی برای فعال شدن به تلگرام شما ارسال شود.</string>
+    <string name="description3">پس از اینکه پروکسی با انجام مراحل قبل به تلگرام شما ارسال شد، دکمه Connect Proxy یا اتصال پروکسی را لمس کنید تا پروکسی فعال و متصل شود</string>
+    <string name="eagleDesc">برای دریافت لیست پروکسی بر روی عقاب ضربه بزنید.</string>
+    <string name="howToUse">راهنمای استفاده</string>
+    <string name="updateDesc">پروکسی های زیر هر چند ساعت یکبار به روز خواهند شد.در صورت متصل نشدن پروکسی ها چند ساعت دیگر به نرم افزار مراجعه کنید. </string>
+    <string name="OffcialTel">اتصال به تلگرام </string>
+
+    <string name="Language"> زبان برنامه </string>
+
+    <string name="ChooseLanguage">انتخاب زبان </string>
+    <string name="LanguageDescption">زبان خود را انتخاب کنید</string>
+
+
+    <string name="Fupdate">آخرین و جدیدترین نسخه برنامه در دسترس است، برای استفاده از برنامه لازم است به آخرین نسخه آپدیت کنید.</string>
+    <string name="FupdatePositiveButton">آپدیت کن</string>
+    <string name="FupdateNegativeButton">خروج از برنامه</string>
+
+
+    <string name="Oupdate">آخرین و جدیدترین نسخه برنامه در دسترس است، لطفا آپدیت کنید.</string>
+    <string name="OupdatePositiveButton">آپدیت کن</string>
+    <string name="OupdateNegativeButton">بعدا</string>
+
+</resources>
