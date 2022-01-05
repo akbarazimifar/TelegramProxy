@@ -9,12 +9,14 @@ import android.content.pm.PackageManager;
 import androidx.multidex.MultiDex;
 
 import com.google.firebase.FirebaseApp;
+import com.proxyfortelegram.powerful.proxy.fastproxy.adManager.AppOpenManager;
 import com.yandex.metrica.YandexMetrica;
 import com.yandex.metrica.YandexMetricaConfig;
 
 public class App extends Application {
     private boolean DEBUGGABLE = false;
     public static Context context;
+    private static AppOpenManager appOpenManager;
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -30,6 +32,7 @@ public class App extends Application {
         super.onCreate();
 
         context = this.getApplicationContext();
+        appOpenManager = new AppOpenManager(this);
 
         try {
             PackageInfo info = getPackageManager().getPackageInfo(getPackageName(), 0);
