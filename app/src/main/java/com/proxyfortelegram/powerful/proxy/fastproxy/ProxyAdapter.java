@@ -26,7 +26,7 @@ import java.util.Random;
 
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
-public class ProItemAdapter extends RecyclerView.Adapter<ProItemAdapter.ViewHolder> {
+public class ProxyAdapter extends RecyclerView.Adapter<ProxyAdapter.ViewHolder> {
 
     private Context context;
     private List<ListModel> listModel;
@@ -34,7 +34,7 @@ public class ProItemAdapter extends RecyclerView.Adapter<ProItemAdapter.ViewHold
     private IClickListner clickListner;
 
     //todo
-    public ProItemAdapter(Context context, List<ListModel> list, IClickListner clickListner) {
+    public ProxyAdapter(Context context, List<ListModel> list, IClickListner clickListner) {
         this.context = context;
         this.listModel = list;
         this.clickListner = clickListner;

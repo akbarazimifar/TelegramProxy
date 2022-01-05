@@ -33,7 +33,7 @@ import com.yandex.metrica.YandexMetrica;
 import java.util.HashMap;
 import java.util.Map;
 
-public class FirstActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
     private ImageButton probtn;
     private ImageButton guidebtn;
     private ImageButton sharebtn;
@@ -70,7 +70,7 @@ public class FirstActivity extends AppCompatActivity {
         guide = findViewById(R.id.guidetxt);
         buttonText = findViewById(R.id.btn_txt);
 
-        mainLoadingDialog = new ProgressDialog(FirstActivity.this);
+        mainLoadingDialog = new ProgressDialog(MainActivity.this);
         mainLoadingDialog.setMessage("Please Wait...");
         mainLoadingDialog.setCancelable(false);
 
@@ -84,7 +84,7 @@ public class FirstActivity extends AppCompatActivity {
 
         guidebtn.setOnClickListener(v -> {
             FirstActivityEvent(0);
-            startActivity(new Intent(FirstActivity.this, GuideActivity.class));
+            startActivity(new Intent(MainActivity.this, TutorialActivity.class));
         });
 
         sharebtn.setOnClickListener(v -> {
@@ -290,7 +290,7 @@ public class FirstActivity extends AppCompatActivity {
     }
 
     private void nextActivity() {
-        Intent intent = new Intent(FirstActivity.this, ProxyActivity.class);
+        Intent intent = new Intent(MainActivity.this, ProxyActivity.class);
         startActivity(intent);
     }
 

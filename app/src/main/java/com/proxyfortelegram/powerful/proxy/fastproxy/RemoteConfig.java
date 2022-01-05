@@ -59,6 +59,10 @@ public class RemoteConfig {
     public String appOpenUnitId() {
         return (String) mFirebaseRemoteConfig.getString("APP_OPEN_UNIT_ID");
     }
+    public String bannerUnitId() {
+        return (String) mFirebaseRemoteConfig.getString("BANNER_UNIT_ID");
+    }
+
 
     public String listInterstitialUnitId() {
         return (String) mFirebaseRemoteConfig.getString("LIST_INTERSTITIAL_UNIT_ID");
@@ -90,6 +94,7 @@ public class RemoteConfig {
         Log.i(TAG, "PERMANENT_BLOCK" +": " + mFirebaseRemoteConfig.getDouble("PERMANENT_BLOCK"));
 
         Log.i(TAG, "APP_OPEN_UNIT_ID" +": " + mFirebaseRemoteConfig.getString("APP_OPEN_UNIT_ID"));
+        Log.i(TAG, "BANNER_UNIT_ID" +": " + mFirebaseRemoteConfig.getString("BANNER_UNIT_ID"));
         Log.i(TAG, "LIST_INTERSTITIAL_UNIT_ID" +": " + mFirebaseRemoteConfig.getString("LIST_INTERSTITIAL_UNIT_ID"));
         Log.i(TAG, "BUTTON_INTERSTITIAL_UNIT_ID" +": " + mFirebaseRemoteConfig.getString("BUTTON_INTERSTITIAL_UNIT_ID"));
         Log.i(TAG, "APPODEAL_APP_ID" +": " + mFirebaseRemoteConfig.getString("APPODEAL_APP_ID"));

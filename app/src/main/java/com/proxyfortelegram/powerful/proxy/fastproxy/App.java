@@ -12,7 +12,7 @@ import com.google.firebase.FirebaseApp;
 import com.yandex.metrica.YandexMetrica;
 import com.yandex.metrica.YandexMetricaConfig;
 
-public class Main extends Application {
+public class App extends Application {
     private boolean DEBUGGABLE = false;
     public static Context context;
 

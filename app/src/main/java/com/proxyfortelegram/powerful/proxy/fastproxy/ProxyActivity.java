@@ -1,21 +1,17 @@
 package com.proxyfortelegram.powerful.proxy.fastproxy;
 
 import android.app.ProgressDialog;
-import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -25,14 +21,9 @@ import com.backendless.Backendless;
 import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 import com.backendless.persistence.DataQueryBuilder;
-import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.FullScreenContentCallback;
-import com.google.android.gms.ads.LoadAdError;
-import com.google.android.gms.ads.interstitial.InterstitialAd;
-import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.proxyfortelegram.powerful.proxy.fastproxy.adManager.AdmobInterstitial;
 import com.proxyfortelegram.powerful.proxy.fastproxy.adManager.AppodealInterstitial;
@@ -85,14 +76,14 @@ public class ProxyActivity extends AppCompatActivity {
 //        Banner Ads
         adContainerView = findViewById(R.id.ad_container);
         adView = new AdView(this);
-        adView.setAdUnitId(getString(R.string.List_Banner));
+        adView.setAdUnitId(RemoteConfig.getInstance().bannerUnitId());
         adContainerView.removeAllViews();
         adContainerView.addView(adView);
         loadBanner();
 
         mList = findViewById(R.id.main_list);
         dataList = new ArrayList<>();
-        adapter = new ProItemAdapter(this, dataList, new IClickListner() {
+        adapter = new ProxyAdapter(this, dataList, new IClickListner() {
             @Override
             public void Onclick(ListModel data) {
                 OnClickWorker(data);

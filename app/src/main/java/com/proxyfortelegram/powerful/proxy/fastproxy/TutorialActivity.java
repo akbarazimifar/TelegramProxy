@@ -6,7 +6,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-public class GuideActivity extends AppCompatActivity {
+public class TutorialActivity extends AppCompatActivity {
 
     private TextView heading1;
     private TextView heading2;
