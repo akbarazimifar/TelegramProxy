@@ -2,15 +2,15 @@
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.hurhco.telegramPro">
+    package="com.proxyfortelegram.powerful.proxy.fastproxy">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
-        android:name="com.hurhco.telegramPro.Main"
+        android:name="com.proxyfortelegram.powerful.proxy.fastproxy.Main"
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="false"
         android:largeHeap="true"
@@ -24,7 +24,7 @@
 
 
         <activity
-            android:name="com.hurhco.telegramPro.Splash"
+            android:name="com.proxyfortelegram.powerful.proxy.fastproxy.Splash"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity">
             <intent-filter>
@@ -34,7 +34,7 @@
         </activity>
 
         <activity
-            android:name="com.hurhco.telegramPro.FirstActivity"
+            android:name="com.proxyfortelegram.powerful.proxy.fastproxy.FirstActivity"
             tools:ignore="LockedOrientationActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
@@ -42,16 +42,16 @@
 
         <activity
             tools:ignore="LockedOrientationActivity"
-            android:name="com.hurhco.telegramPro.GuideActivity"
+            android:name="com.proxyfortelegram.powerful.proxy.fastproxy.GuideActivity"
             android:screenOrientation="portrait">
         </activity>
 
         <activity
             tools:ignore="LockedOrientationActivity"
-            android:name="com.hurhco.telegramPro.ProxyActivity"
+            android:name="com.proxyfortelegram.powerful.proxy.fastproxy.ProxyActivity"
             android:screenOrientation="portrait">
         </activity>
-        <service android:name=".FirebaseMessagingServiceListener">
+        <service android:name="com.proxyfortelegram.powerful.proxy.fastproxy.FirebaseMessagingServiceListener">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>

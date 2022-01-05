@@ -1,17 +1,18 @@
-//noinspection GradleDependency
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
 
+def versionMajor = 1
+def versionMinor = 0
+def versionPatch = 0
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileSdkVersion 31
     defaultConfig {
-        applicationId "com.hurhco.telegramPro"
-        minSdkVersion 17
-        targetSdkVersion 29
-        versionCode 28
-        versionName "2.8.0"
+        applicationId "com.proxyfortelegram.powerful.proxy.fastproxy"
+        minSdkVersion 22
+        targetSdkVersion 31
+        versionCode versionMajor * 100000 + versionMinor * 1000 + versionPatch
+        versionName "${versionMajor}.${versionMinor}.${versionPatch}"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
         signingConfig signingConfigs.debug
@@ -32,24 +33,37 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.appcompat:appcompat:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'com.squareup.picasso:picasso:2.71828'
-    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'com.google.android.material:material:1.4.0'
 
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'com.backendless:backendless:6.1.0'
-    implementation 'com.akexorcist:localization:1.2.5'
-    implementation 'com.yandex.android:mobmetricalib:3.18.0'
+    implementation 'com.yandex.android:mobmetricalib:4.1.1'
 
-    implementation 'com.google.android.gms:play-services-ads:19.7.0'
-    implementation 'com.google.firebase:firebase-messaging:21.0.1'
-    implementation 'com.google.firebase:firebase-analytics:18.0.2'
-    implementation 'com.google.firebase:firebase-crashlytics:17.3.1'
-    implementation 'com.google.android.play:core:1.10.0'
+    implementation 'com.google.android.gms:play-services-ads:20.4.0'
+    implementation 'com.google.firebase:firebase-analytics:20.0.2'
+    implementation 'com.google.firebase:firebase-crashlytics:18.2.6'
+    implementation 'com.google.firebase:firebase-messaging:23.0.0'
+    implementation 'com.google.firebase:firebase-inappmessaging-display:20.1.1'
+    implementation platform('com.google.firebase:firebase-bom:29.0.3')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.android.play:core:1.10.2'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.firebase:firebase-config:21.0.1'
 
-    testImplementation 'junit:junit:4.13.1'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.scottyab:rootbeer-lib:0.0.9'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+
+    implementation ('com.appodeal.ads:sdk:2.11.0.0') {
+        exclude group: 'com.appodeal.ads.sdk.networks', module: 'appodeal'
+        exclude group: 'com.appodeal.ads.sdk.networks', module: 'nast'
+    }
 }

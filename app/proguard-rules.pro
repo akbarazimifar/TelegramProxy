@@ -24,7 +24,7 @@
 -keep class weborb.** {*;}
 
 -keep public class com.backendless.** {*;}
--keep public class com.hurhco.telegramPro.* {*;}
+-keep public class com.proxyfortelegram.powerful.proxy.fastproxy.* {*;}
 
 -assumenosideeffects class android.util.Log {
     public static *** v(...);

@@ -6,10 +6,13 @@
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorTransparentWhite">#cccccc</color>
     <color name="darkgray">#272b34</color>
-    <color name="ColorPrimary">#FF5722</color>
-    <color name="ColorPrimaryDark">#E64A19</color>
     <color name="NotAvaliable">#FF002D</color>
     <color name="Avaliable">#35B83B</color>
+    <color name="mainBackground">#202020</color>
+    <color name="colorOne">#c20d49</color>
+    <color name="colorTwo">#ff8700</color>
+    <color name="black">#151515</color>
+    <color name="blackTwo">#0B0B0B</color>
 
     <integer-array name="androidcolors">
         <item>98</item>

@@ -1,11 +1,6 @@
 <resources>
 
-    <string name="myAppID" translatable="false">ca-app-pub-5378772716460991~5141155975</string>
-
-    <string name="Eagle_Banner" translatable="false">ca-app-pub-5378772716460991/7575747624</string>
-    <string name="Eagle_Interstitial" translatable="false">ca-app-pub-5378772716460991/9682395583</string>
-    <string name="List_Banner" translatable="false">ca-app-pub-5378772716460991/6930369075</string>
-    <string name="List_Interstitial" translatable="false">ca-app-pub-5378772716460991/6738797386</string>
+    <string name="myAppID" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
 
 
     <string name="app_name">Professional Proxy</string>
@@ -36,9 +31,9 @@
     <string name="description2">you will see all the proxies like the above image, to use the proxy, please touch the "CONNECT TO TELEGRAM" button.</string>
     <string name="description3">after touching the "Telegram" or "Other Telegram" button in the previous step, you will direct to telegram
                                 application, for active the proxy please touch the "Connect Proxy" button.</string>
-    <string name="eagleDesc">Tap the shield to access the proxy list</string>
+    <string name="buttonDesc">Tap the shield to access the proxy list</string>
     <string name="howToUse">How To Use</string>
-    <string name="updateDesc">The following proxies will be updated every few hours. If not successful to connect the proxy, please visit the application in a few hours.</string>
+    <string name="listLogo">Powerful Proxy</string>
     <string name="OffcialTel">Connect To Telegram</string>
 
     <string name="Language">Language</string>

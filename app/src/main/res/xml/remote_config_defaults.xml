@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<defaultsMap>
+    <entry>
+        <key>CAN_SHOW_BUTTON_MOB_AD</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>CAN_SHOW_SPLASH_DEAL_AD</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>CAN_SHOW_LIST_MOB_AD</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>CAN_SHOW_DEAL_AD</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>CAN_SHOW_DISCONNECT_AD</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>CAN_SHOW_APP_OPEN_AD</key>
+        <value>false</value>
+    </entry>
+
+
+    <entry>
+        <key>LEVEL_ONE_NUMBER</key>
+        <value>7</value>
+    </entry>
+    <entry>
+        <key>LEVEL_ONE_PERIOD</key>
+        <value>3600</value>
+    </entry>
+    <entry>
+        <key>LEVEL_TWO_NUMBER</key>
+        <value>20</value>
+    </entry>
+    <entry>
+        <key>LEVEL_TWO_PERIOD</key>
+        <value>86400</value>
+    </entry>
+    <entry>
+        <key>BLOCK_THRU</key>
+        <value>18000</value>
+    </entry>
+    <entry>
+        <key>PERMANENT_BLOCK</key>
+        <value>5</value>
+    </entry>
+
+
+    <entry>
+        <key>APP_OPEN_UNIT_ID</key>
+        <value>ca-app-pub-3940256099942544/3419835294</value>
+    </entry>
+    <entry>
+        <key>LIST_INTERSTITIAL_UNIT_ID</key>
+        <value>ca-app-pub-3940256099942544/1033173712</value>
+    </entry>
+    <entry>
+        <key>BUTTON_INTERSTITIAL_UNIT_ID</key>
+        <value>ca-app-pub-3940256099942544/1033173712</value>
+    </entry>
+    <entry>
+        <key>APPODEAL_APP_ID</key>
+        <value></value>
+    </entry>
+
+
+</defaultsMap>

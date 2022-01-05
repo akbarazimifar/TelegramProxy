@@ -1,16 +1,16 @@
 {
   "project_info": {
     "project_number": "1064121646742",
-    "firebase_url": "https://telegram-proxy-15f42.firebaseio.com",
-    "project_id": "telegram-proxy-15f42",
-    "storage_bucket": "telegram-proxy-15f42.appspot.com"
+    "firebase_url": "https://telegramproxy.firebaseio.com",
+    "project_id": "telegramproxy",
+    "storage_bucket": "telegramproxy.appspot.com"
   },
   "client": [
     {
       "client_info": {
         "mobilesdk_app_id": "1:1064121646742:android:98a7eb361afb4cb8604cb7",
         "android_client_info": {
-          "package_name": "com.hurhco.telegramPro"
+          "package_name": "com.proxyfortelegram.powerful.proxy.fastproxy"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "1064121646742-lvqsjvkkjqgr65r2pbqg08ssfrree4l4.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.hurhco.telegramPro",
+            "package_name": "com.proxyfortelegram.powerful.proxy.fastproxy",
             "certificate_hash": "57c430e15406a6404162ca5972621c4c4f7b445f"
           }
         },
