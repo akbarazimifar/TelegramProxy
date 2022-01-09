@@ -24,7 +24,7 @@
 
 
         <activity
-            android:name="com.proxyfortelegram.powerful.proxy.fastproxy.Splash"
+            android:name="com.proxyfortelegram.powerful.proxy.fastproxy.SplashActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity">
             <intent-filter>
@@ -48,10 +48,10 @@
 
         <activity
             tools:ignore="LockedOrientationActivity"
-            android:name="com.proxyfortelegram.powerful.proxy.fastproxy.ProxyActivity"
+            android:name="com.proxyfortelegram.powerful.proxy.fastproxy.proxy.ProxyActivity"
             android:screenOrientation="portrait">
         </activity>
-        <service android:name="com.proxyfortelegram.powerful.proxy.fastproxy.FirebaseMessagingServiceListener">
+        <service android:name="com.proxyfortelegram.powerful.proxy.fastproxy.helpers.FirebaseMessagingServiceListener">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>

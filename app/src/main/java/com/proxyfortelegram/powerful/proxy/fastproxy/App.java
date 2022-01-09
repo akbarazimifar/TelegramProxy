@@ -10,6 +10,7 @@ import androidx.multidex.MultiDex;
 
 import com.google.firebase.FirebaseApp;
 import com.proxyfortelegram.powerful.proxy.fastproxy.adManager.AppOpenManager;
+import com.proxyfortelegram.powerful.proxy.fastproxy.helpers.RemoteConfig;
 import com.yandex.metrica.YandexMetrica;
 import com.yandex.metrica.YandexMetricaConfig;
 
@@ -42,13 +43,9 @@ public class App extends Application {
             //
         }
 
-        // Creating an extended library configuration.
-        YandexMetricaConfig config = YandexMetricaConfig.newConfigBuilder("d63f30da-9549-4591-928d-9ff1434b41b6").build();
-        // Initializing the AppMetrica SDK.
+        YandexMetricaConfig config = YandexMetricaConfig.newConfigBuilder("8dbe6375-4ed2-4f02-aa6a-6e0b9c841985").build();
         YandexMetrica.activate(getApplicationContext(), config);
-        // Automatic tracking of user activity.
         YandexMetrica.enableActivityAutoTracking(this);
-
         FirebaseApp.initializeApp(getApplicationContext());
         RemoteConfig.getInstance().init();
 

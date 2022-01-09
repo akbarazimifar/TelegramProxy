@@ -1,4 +1,4 @@
-package com.proxyfortelegram.powerful.proxy.fastproxy;
+package com.proxyfortelegram.powerful.proxy.fastproxy.proxy;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,18 +10,16 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.proxyfortelegram.powerful.proxy.fastproxy.R;
+import com.proxyfortelegram.powerful.proxy.fastproxy.helpers.IClickListner;
 import com.squareup.picasso.Picasso;
-import com.yandex.metrica.YandexMetrica;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
@@ -54,16 +52,16 @@ public class ProxyAdapter extends RecyclerView.Adapter<ProxyAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
-        ping(holder);
+        speed(holder);
         holder.bind(listModel.get(position));
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        protected Button btn_telegram;
-        protected ImageButton btn_share;
+        public Button btn_telegram;
+        public ImageButton btn_share;
         public ImageView img_country;
         public TextView textpublish, textlocation, textrandom;
-        private LinearLayout statusColor;
+        private ImageView statusColor;
         private ListModel data;
 
         public void bind(ListModel data){
@@ -88,14 +86,13 @@ public class ProxyAdapter extends RecyclerView.Adapter<ProxyAdapter.ViewHolder> 
             textpublish = itemView.findViewById(R.id.publish);
             textrandom = itemView.findViewById(R.id.random);
             btn_telegram = itemView.findViewById(R.id.btn_teleg);
-            img_country = itemView.findViewById(R.id.imgc);
+            img_country = itemView.findViewById(R.id.flag);
             btn_share = itemView.findViewById(R.id.btn_share);
             statusColor = itemView.findViewById(R.id.sts_color);
 
             btn_share.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    proxyListEvent(1);
                     shareProxy(data);
                 }
             });
@@ -103,7 +100,6 @@ public class ProxyAdapter extends RecyclerView.Adapter<ProxyAdapter.ViewHolder> 
             btn_telegram.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    proxyListEvent(0);
                     clickListner.Onclick(data);
                 }
             });
@@ -112,7 +108,7 @@ public class ProxyAdapter extends RecyclerView.Adapter<ProxyAdapter.ViewHolder> 
         }
     }
 
-    private void ping(final ViewHolder holder) {
+    private void speed(final ViewHolder holder) {
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -121,9 +117,9 @@ public class ProxyAdapter extends RecyclerView.Adapter<ProxyAdapter.ViewHolder> 
                 int randompNom = pNom[new Random().nextInt(pNom.length)];
                 holder.textrandom.setText(String.valueOf("Speed:  " + randompNom + " ms"));
                 if (randompNom == 0) {
-                    holder.statusColor.setBackgroundColor(context.getResources().getColor(R.color.NotAvaliable));
+                    holder.statusColor.setImageDrawable(context.getResources().getDrawable(R.drawable.nav));
                 } else {
-                    holder.statusColor.setBackgroundColor(context.getResources().getColor(R.color.Avaliable));
+                    holder.statusColor.setImageDrawable(context.getResources().getDrawable(R.drawable.av));
 
                 }
             }
@@ -134,23 +130,9 @@ public class ProxyAdapter extends RecyclerView.Adapter<ProxyAdapter.ViewHolder> 
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
         sendIntent.setType("text/plain");
-        String introduce = context.getResources().getString(R.string.moreProxy);
+        String introduce = context.getResources().getString(R.string.listShareMessage);
         introduce = introduce + "https://play.google.com/store/apps/details?id=" + context.getPackageName() + "\n\n";
         sendIntent.putExtra(Intent.EXTRA_TEXT, context.getResources().getString(R.string.useProxy)+ data.getlink() + introduce);
         context.startActivity(sendIntent.setFlags(FLAG_ACTIVITY_NEW_TASK));
-    }
-
-    private void proxyListEvent(int staus) {
-        Map<String, Object> eventParameters = new HashMap<String, Object>();
-
-        switch (staus) {
-            case 0:
-                eventParameters.put("Connect Button", "Touched");
-                break;
-            case 1:
-                eventParameters.put("Share Button", "Touched");
-                break;
-        }
-        YandexMetrica.reportEvent("List Activity", eventParameters);
     }
 }

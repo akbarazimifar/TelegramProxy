@@ -16,7 +16,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.appopen.AppOpenAd;
-import com.proxyfortelegram.powerful.proxy.fastproxy.RemoteConfig;
+import com.proxyfortelegram.powerful.proxy.fastproxy.helpers.RemoteConfig;
 import com.yandex.metrica.YandexMetrica;
 
 import org.jetbrains.annotations.NotNull;
@@ -126,10 +126,8 @@ public class AppOpenManager implements LifecycleObserver, Application.ActivityLi
         // and an ad is available.
         if (RemoteConfig.getInstance().appOpenAdsRules()) {
             Log.i(TAG, "AppOpen - Remote Config allow to show app open ad");
-
             if (!isShowingAd && isAdAvailable()) {
                 Log.i(TAG, "AppOpen - Will show ad.");
-
                 FullScreenContentCallback fullScreenContentCallback =
                         new FullScreenContentCallback() {
                             @Override

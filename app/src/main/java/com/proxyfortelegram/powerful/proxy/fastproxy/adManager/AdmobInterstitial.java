@@ -14,6 +14,7 @@ import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
+import com.proxyfortelegram.powerful.proxy.fastproxy.adManager.listener.IMobAdListener;
 import com.scottyab.rootbeer.RootBeer;
 import com.yandex.metrica.YandexMetrica;
 

@@ -26,8 +26,10 @@ import com.google.android.play.core.review.ReviewManagerFactory;
 import com.google.android.play.core.tasks.Task;
 import com.proxyfortelegram.powerful.proxy.fastproxy.adManager.AdmobInterstitial;
 import com.proxyfortelegram.powerful.proxy.fastproxy.adManager.AppodealInterstitial;
-import com.proxyfortelegram.powerful.proxy.fastproxy.adManager.IDealAdListener;
-import com.proxyfortelegram.powerful.proxy.fastproxy.adManager.IMobAdListener;
+import com.proxyfortelegram.powerful.proxy.fastproxy.adManager.listener.IDealAdListener;
+import com.proxyfortelegram.powerful.proxy.fastproxy.adManager.listener.IMobAdListener;
+import com.proxyfortelegram.powerful.proxy.fastproxy.helpers.RemoteConfig;
+import com.proxyfortelegram.powerful.proxy.fastproxy.proxy.ProxyActivity;
 import com.yandex.metrica.YandexMetrica;
 
 import java.util.HashMap;
@@ -78,21 +80,22 @@ public class MainActivity extends AppCompatActivity {
         appodealManager = new AppodealInterstitial(this, iDealAdListener);
 
         probtn.setOnClickListener(v -> {
-            //showAd();
-            nextActivity();
+            if (RemoteConfig.getInstance().buttonMobAdsRules()) {
+                showAd();
+            } else {
+                nextActivity();
+            }
         });
 
         guidebtn.setOnClickListener(v -> {
-            FirstActivityEvent(0);
             startActivity(new Intent(MainActivity.this, TutorialActivity.class));
         });
 
         sharebtn.setOnClickListener(v -> {
-            FirstActivityEvent(1);
             Intent intent = new Intent(Intent.ACTION_SEND);
             intent.setType("text/plain");
             intent.putExtra(Intent.EXTRA_SUBJECT, " ");
-            String sAux = getResources().getString(R.string.shareUs);
+            String sAux = getResources().getString(R.string.appShareMessage);
             sAux = sAux + "https://play.google.com/store/apps/details?id=" + getPackageName() + "\n\n";
             intent.putExtra(Intent.EXTRA_TEXT, sAux);
             startActivity(Intent.createChooser(intent, "choose one"));
@@ -109,22 +112,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void update() {
-        // Creates instance of the manager.
         appUpdateManager = AppUpdateManagerFactory.create(this);
-
-        // Returns an intent object that you use to check for an update.
         Task<AppUpdateInfo> appUpdateInfoTask = appUpdateManager.getAppUpdateInfo();
-
-        // Checks that the platform will allow the specified type of update.
         appUpdateInfoTask.addOnSuccessListener(appUpdateInfo -> {
             if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
-                    // For a flexible update, use AppUpdateType.FLEXIBLE
                     && appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE)) {
                 try {
                     appUpdateManager.startUpdateFlowForResult(
                             appUpdateInfo,
                             AppUpdateType.IMMEDIATE, this, MY_UPDATE_REQUEST_CODE);
-                    FirstActivityEvent(3);
                 } catch (IntentSender.SendIntentException e) {
                     e.printStackTrace();
                 }
@@ -141,7 +137,6 @@ public class MainActivity extends AppCompatActivity {
                             appUpdateInfo -> {
                                 if (appUpdateInfo.updateAvailability()
                                         == UpdateAvailability.DEVELOPER_TRIGGERED_UPDATE_IN_PROGRESS) {
-                                    // If an in-app update is already running, resume the update.
                                     try {
                                         appUpdateManager.startUpdateFlowForResult(
                                                 appUpdateInfo,
@@ -160,7 +155,6 @@ public class MainActivity extends AppCompatActivity {
         Task<ReviewInfo> request = manager.requestReviewFlow();
         request.addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
-                // We can get the ReviewInfo object
                 ReviewInfo reviewInfo = task.getResult();
                 showReview(manager, reviewInfo);
             } else {
@@ -194,35 +188,37 @@ public class MainActivity extends AppCompatActivity {
 
     private void showAd() {
         admobManager.requestInterstitialAd(RemoteConfig.getInstance().buttonInterstitialUnitId(), new IMobAdListener() {
-
             @Override
             public void onAdCloseAdMob() {
                 nextActivity();
+                InterstitialMobEvent(0);
             }
 
             @Override
             public void onFailedAdMob() {
                 showDealAd();
+                InterstitialMobEvent(1);
             }
 
             @Override
             public void onAdImpressionAdmob() {
-
+                InterstitialMobEvent(2);
             }
 
             @Override
             public void onAdClickedAdMob() {
-
+                InterstitialMobEvent(3);
             }
 
             @Override
             public void onAdRequestAdMob() {
-
+                InterstitialMobEvent(4);
             }
 
             @Override
             public void onDeviceRootedAdMob() {
                 nextActivity();
+                InterstitialMobEvent(5);
             }
 
             @Override
@@ -242,51 +238,59 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showDealAd() {
-        appodealManager.requestInterstitialAd(new IDealAdListener() {
-            @Override
-            public void onAdCloseAppodeal() {
-                nextActivity();
-            }
-
-            @Override
-            public void onFailedAppodeal() {
-                nextActivity();
-            }
-
-            @Override
-            public void onAdImpressionAppodeal() {
-
-            }
-
-            @Override
-            public void onAdClickedAppodeal() {
-
-            }
-
-            @Override
-            public void onTimeOutAppodeal() {
-                nextActivity();
-            }
-
-            @Override
-            public void onDeviceRootedAppodeal() {
-                nextActivity();
-            }
-
-            @Override
-            public void onShowDialogAppodeal() {
-                if (mainLoadingDialog != null && !mainLoadingDialog.isShowing()) {
-                    mainLoadingDialog.show();
+        if (RemoteConfig.getInstance().appodealAdRules()) {
+            appodealManager.requestInterstitialAd(new IDealAdListener() {
+                @Override
+                public void onAdCloseAppodeal() {
+                    InterstitialDealEvent(0);
+                    nextActivity();
                 }
-            }
 
-            @Override
-            public void onDismissDialogAppodeal() {
-                if (mainLoadingDialog != null && mainLoadingDialog.isShowing()) {
-                    mainLoadingDialog.dismiss();
+                @Override
+                public void onFailedAppodeal() {
+                    InterstitialDealEvent(1);
+                    nextActivity();
                 }
-            }
-        });
+
+                @Override
+                public void onAdImpressionAppodeal() {
+                    InterstitialDealEvent(2);
+                }
+
+                @Override
+                public void onAdClickedAppodeal() {
+                    InterstitialDealEvent(3);
+                }
+
+                @Override
+                public void onTimeOutAppodeal() {
+                    InterstitialDealEvent(4);
+                    nextActivity();
+                }
+
+                @Override
+                public void onDeviceRootedAppodeal() {
+                    InterstitialDealEvent(5);
+                    nextActivity();
+                }
+
+                @Override
+                public void onShowDialogAppodeal() {
+                    if (mainLoadingDialog != null && !mainLoadingDialog.isShowing()) {
+                        mainLoadingDialog.show();
+                    }
+                }
+
+                @Override
+                public void onDismissDialogAppodeal() {
+                    if (mainLoadingDialog != null && mainLoadingDialog.isShowing()) {
+                        mainLoadingDialog.dismiss();
+                    }
+                }
+            });
+        }  else {
+            nextActivity();
+        }
     }
 
     private void nextActivity() {
@@ -294,47 +298,54 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void InterstitialEvent(int Status) {
+    private void InterstitialMobEvent(int Status) {
         Map<String, Object> eventParameters = new HashMap<String, Object>();
-
         switch (Status) {
             case 0:
-                eventParameters.put("Interstitial  Button", "Ad Request Sent");
+                eventParameters.put("Interstitial  Button", "on Ad Close");
                 break;
             case 1:
-                eventParameters.put("Interstitial  Button", "Failed");
+                eventParameters.put("Interstitial  Button", "on Failed");
                 break;
             case 2:
-                eventParameters.put("Interstitial  Button", "Ad Failed To Load");
+                eventParameters.put("Interstitial  Button", "on Ad Impression");
                 break;
             case 3:
-                eventParameters.put("Interstitial  Button", "Ad Show And Dismissed");
+                eventParameters.put("Interstitial  Button", "on Ad Clicked");
                 break;
             case 4:
-                eventParameters.put("Interstitial  Button", "Ad Failed To Show FullScreen");
+                eventParameters.put("Interstitial  Button", "on Ad Request");
+                break;
+            case 5:
+                eventParameters.put("Interstitial  Button", "on Device Rooted");
                 break;
         }
         YandexMetrica.reportEvent("AdMob", eventParameters);
     }
 
-    private void FirstActivityEvent(int staus) {
+    private void InterstitialDealEvent(int Status) {
         Map<String, Object> eventParameters = new HashMap<String, Object>();
-
-        switch (staus) {
+        switch (Status) {
             case 0:
-                eventParameters.put("How To Use Button", "Touched");
+                eventParameters.put("Interstitial  Button", "on Ad Close");
                 break;
             case 1:
-                eventParameters.put("Share Button", "Touched");
+                eventParameters.put("Interstitial  Button", "on Failed");
                 break;
             case 2:
-                eventParameters.put("Review Button", "Touched");
+                eventParameters.put("Interstitial  Button", "on Ad Impression");
                 break;
             case 3:
-                eventParameters.put("In App Update", "Showed");
+                eventParameters.put("Interstitial  Button", "on Ad Clicked");
+                break;
+            case 4:
+                eventParameters.put("Interstitial  Button", "on Ad Timeout");
+                break;
+            case 5:
+                eventParameters.put("Interstitial  Button", "on Device Rooted");
                 break;
         }
-        YandexMetrica.reportEvent(" Activity", eventParameters);
+        YandexMetrica.reportEvent("Appodeal", eventParameters);
     }
 
     @Override

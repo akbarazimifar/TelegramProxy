@@ -1,4 +1,4 @@
-package com.proxyfortelegram.powerful.proxy.fastproxy;
+package com.proxyfortelegram.powerful.proxy.fastproxy.proxy;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -25,10 +25,14 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.proxyfortelegram.powerful.proxy.fastproxy.R;
 import com.proxyfortelegram.powerful.proxy.fastproxy.adManager.AdmobInterstitial;
 import com.proxyfortelegram.powerful.proxy.fastproxy.adManager.AppodealInterstitial;
-import com.proxyfortelegram.powerful.proxy.fastproxy.adManager.IDealAdListener;
-import com.proxyfortelegram.powerful.proxy.fastproxy.adManager.IMobAdListener;
+import com.proxyfortelegram.powerful.proxy.fastproxy.adManager.listener.IDealAdListener;
+import com.proxyfortelegram.powerful.proxy.fastproxy.adManager.listener.IMobAdListener;
+import com.proxyfortelegram.powerful.proxy.fastproxy.helpers.IClickListner;
+import com.proxyfortelegram.powerful.proxy.fastproxy.helpers.PreferencesManager;
+import com.proxyfortelegram.powerful.proxy.fastproxy.helpers.RemoteConfig;
 import com.yandex.metrica.YandexMetrica;
 
 import java.util.ArrayList;
@@ -65,6 +69,7 @@ public class ProxyActivity extends AppCompatActivity {
         FirebaseMessaging.getInstance().subscribeToTopic("allDevices");
 
         initBackendLess();
+        adMobBanner();
 
         admobManager = new AdmobInterstitial(this, iMobAdListener);
         appodealManager = new AppodealInterstitial(this, iDealAdListener);
@@ -72,14 +77,6 @@ public class ProxyActivity extends AppCompatActivity {
         mainLoadingDialog = new ProgressDialog(ProxyActivity.this);
         mainLoadingDialog.setMessage("Please Wait...");
         mainLoadingDialog.setCancelable(false);
-
-//        Banner Ads
-        adContainerView = findViewById(R.id.ad_container);
-        adView = new AdView(this);
-        adView.setAdUnitId(RemoteConfig.getInstance().bannerUnitId());
-        adContainerView.removeAllViews();
-        adContainerView.addView(adView);
-        loadBanner();
 
         mList = findViewById(R.id.main_list);
         dataList = new ArrayList<>();
@@ -103,35 +100,13 @@ public class ProxyActivity extends AppCompatActivity {
 //      Interstitial Ads
     }
 
-    private void getData() {
-        DataQueryBuilder queryBuilder = DataQueryBuilder.create();
-        queryBuilder.setPageSize(100).setOffset(0);
-        queryBuilder.setSortBy("sortId AESC");
-
-        Backendless.Data.of("ProServer").find(queryBuilder, new AsyncCallback<List<Map>>() {
-            @Override
-            public void handleResponse(List<Map> items) {
-
-                if (items == null || items.isEmpty()) return;
-                for (Map item : items) {
-                    ListModel myServer = new ListModel("location", "publish", "link", "imgc", "sortId");
-                    myServer.location = ((String) item.get("location"));
-                    myServer.publish = ((String) item.get("publish"));
-                    myServer.link = ((String) item.get("link"));
-                    myServer.sortId = ((Integer) item.get("sortId"));
-
-                    dataList.add(myServer);
-                }
-                adapter.notifyDataSetChanged();
-                progressBar.setVisibility(View.INVISIBLE);
-            }
-
-            @Override
-            public void handleFault(BackendlessFault fault) {
-                Toast.makeText(ProxyActivity.this, "دوباره تلاش کنید", Toast.LENGTH_SHORT).show();
-                progressBar.setVisibility(View.INVISIBLE);
-            }
-        });
+    private void adMobBanner() {
+        adContainerView = findViewById(R.id.ad_container);
+        adView = new AdView(this);
+        adView.setAdUnitId(RemoteConfig.getInstance().bannerUnitId());
+        adContainerView.removeAllViews();
+        adContainerView.addView(adView);
+        loadBanner();
     }
 
     private void loadBanner() {
@@ -153,6 +128,37 @@ public class ProxyActivity extends AppCompatActivity {
         return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, adWidth);
     }
 
+    private void getData() {
+        DataQueryBuilder queryBuilder = DataQueryBuilder.create();
+        queryBuilder.setPageSize(100).setOffset(0);
+        queryBuilder.setSortBy("sortId AESC");
+
+        Backendless.Data.of("ProServer").find(queryBuilder, new AsyncCallback<List<Map>>() {
+            @Override
+            public void handleResponse(List<Map> items) {
+
+                if (items == null || items.isEmpty()) return;
+                for (Map item : items) {
+                    ListModel myServer = new ListModel("location", "publish", "link", "sortId");
+                    myServer.location = ((String) item.get("location"));
+                    myServer.publish = ((String) item.get("publish"));
+                    myServer.link = ((String) item.get("link"));
+                    myServer.sortId = ((Integer) item.get("sortId"));
+
+                    dataList.add(myServer);
+                }
+                adapter.notifyDataSetChanged();
+                progressBar.setVisibility(View.INVISIBLE);
+            }
+
+            @Override
+            public void handleFault(BackendlessFault fault) {
+                Toast.makeText(ProxyActivity.this, "دوباره تلاش کنید", Toast.LENGTH_SHORT).show();
+                progressBar.setVisibility(View.INVISIBLE);
+            }
+        });
+    }
+
     private void OnClickWorker(ListModel data) {
         action(data);
 
@@ -167,6 +173,22 @@ public class ProxyActivity extends AppCompatActivity {
         }*/
     }
 
+    private void action(ListModel data) {
+        Intent sendToTelegram = new Intent("android.intent.action.VIEW");
+//      String url = data.getlink().replace("https://", "tg://");
+        String url = data.getlink();
+        sendToTelegram.setData(Uri.parse(url));
+        startActivity(Intent.createChooser(sendToTelegram, "Set Proxy")
+                .setFlags(FLAG_ACTIVITY_NEW_TASK));
+    }
+
+    private void initBackendLess() {
+        PreferencesManager pm = PreferencesManager.newInstance(this);
+        Backendless.setUrl(pm.getBackendUrl());
+        Backendless.initApp(getApplicationContext(),
+                "01B43E68-0688-4864-8634-1665D3C29E74",
+                "5C92FFE6-A9AD-4CFD-9D5E-2BC3BDCA91DE");
+    }
 
     /*private void showAd(ListModel data) {
         admobManager.requestInterstitialAd(RemoteConfig.getInstance().buttonInterstitialUnitId(), new IMobAdListener() {
@@ -270,46 +292,5 @@ public class ProxyActivity extends AppCompatActivity {
         int ads = sharedPreferences.getInt("InterstitialAd", 0) + 1;
         sharedPreferences.edit().putInt("InterstitialAd", ads).apply();
     }*/
-
-
-    private void action(ListModel data) {
-        Intent sendToTelegram = new Intent("android.intent.action.VIEW");
-//      String url = data.getlink().replace("https://", "tg://");
-        String url = data.getlink();
-        sendToTelegram.setData(Uri.parse(url));
-        startActivity(Intent.createChooser(sendToTelegram, "Set Proxy")
-                .setFlags(FLAG_ACTIVITY_NEW_TASK));
-    }
-
-    private void InterstitialEvent(int Status) {
-        Map<String, Object> eventParameters = new HashMap<String, Object>();
-
-        switch (Status) {
-            case 0:
-                eventParameters.put("Interstitial List Button", "Ad Request Sent");
-                break;
-            case 1:
-                eventParameters.put("Interstitial List Button", "Failed");
-                break;
-            case 2:
-                eventParameters.put("Interstitial List Button", "Ad Failed To Load");
-                break;
-            case 3:
-                eventParameters.put("Interstitial List Button", "Ad Show And Dismissed");
-                break;
-            case 4:
-                eventParameters.put("Interstitial List Button", "Ad Failed To Show FullScreen");
-                break;
-        }
-        YandexMetrica.reportEvent("AdMob", eventParameters);
-    }
-
-    private void initBackendLess() {
-        PreferencesManager pm = PreferencesManager.newInstance(this);
-        Backendless.setUrl(pm.getBackendUrl());
-        Backendless.initApp(getApplicationContext(),
-                "01B43E68-0688-4864-8634-1665D3C29E74",
-                "5C92FFE6-A9AD-4CFD-9D5E-2BC3BDCA91DE");
-    }
 
 }

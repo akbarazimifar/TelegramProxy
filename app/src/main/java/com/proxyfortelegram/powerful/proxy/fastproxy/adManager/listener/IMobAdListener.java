@@ -1,4 +1,4 @@
-package com.proxyfortelegram.powerful.proxy.fastproxy.adManager;
+package com.proxyfortelegram.powerful.proxy.fastproxy.adManager.listener;
 
 
 public interface IMobAdListener {

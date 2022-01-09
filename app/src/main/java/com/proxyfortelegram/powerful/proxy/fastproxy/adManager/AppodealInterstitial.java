@@ -10,7 +10,8 @@ import androidx.lifecycle.OnLifecycleEvent;
 
 import com.appodeal.ads.Appodeal;
 import com.appodeal.ads.InterstitialCallbacks;
-import com.proxyfortelegram.powerful.proxy.fastproxy.RemoteConfig;
+import com.proxyfortelegram.powerful.proxy.fastproxy.helpers.RemoteConfig;
+import com.proxyfortelegram.powerful.proxy.fastproxy.adManager.listener.IDealAdListener;
 import com.scottyab.rootbeer.RootBeer;
 
 

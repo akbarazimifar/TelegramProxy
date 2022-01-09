@@ -1,42 +1,33 @@
 {
   "project_info": {
-    "project_number": "1064121646742",
-    "firebase_url": "https://telegramproxy.firebaseio.com",
-    "project_id": "telegramproxy",
-    "storage_bucket": "telegramproxy.appspot.com"
+    "project_number": "449089378455",
+    "project_id": "sunproxy-bf0ec",
+    "storage_bucket": "sunproxy-bf0ec.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1064121646742:android:98a7eb361afb4cb8604cb7",
+        "mobilesdk_app_id": "1:449089378455:android:35dabe350c80533e6471d2",
         "android_client_info": {
           "package_name": "com.proxyfortelegram.powerful.proxy.fastproxy"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1064121646742-lvqsjvkkjqgr65r2pbqg08ssfrree4l4.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.proxyfortelegram.powerful.proxy.fastproxy",
-            "certificate_hash": "57c430e15406a6404162ca5972621c4c4f7b445f"
-          }
-        },
-        {
-          "client_id": "1064121646742-quhhh4bf3mepftkvr4eqfa69640l9hg1.apps.googleusercontent.com",
+          "client_id": "449089378455-3q96ocho82i49cip5vq3a46bvs58ugh6.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDPf3CSRXESQRhY_tDjYiMQqWrtO8Tn8Dg"
+          "current_key": "AIzaSyA5JZpPy7e2juoBoWGjieNR5ei0mGUjmF4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1064121646742-quhhh4bf3mepftkvr4eqfa69640l9hg1.apps.googleusercontent.com",
+              "client_id": "449089378455-3q96ocho82i49cip5vq3a46bvs58ugh6.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

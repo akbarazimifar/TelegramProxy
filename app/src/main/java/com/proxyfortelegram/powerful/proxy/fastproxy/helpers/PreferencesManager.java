@@ -1,4 +1,4 @@
-package com.proxyfortelegram.powerful.proxy.fastproxy;
+package com.proxyfortelegram.powerful.proxy.fastproxy.helpers;
 
 import android.content.Context;
 import android.content.SharedPreferences;

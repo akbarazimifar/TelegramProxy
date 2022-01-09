@@ -1,4 +1,4 @@
-package com.proxyfortelegram.powerful.proxy.fastproxy;
+package com.proxyfortelegram.powerful.proxy.fastproxy.proxy;
 
 public class ListModel {
 
@@ -7,7 +7,7 @@ public class ListModel {
     public String link;
     public Integer sortId;
 
-    public ListModel(String location, String publish, String link, String imgc, String sortId) {
+    public ListModel(String location, String publish, String link, String sortId) {
         this.location = this.location;
         this.publish = this.publish;
         this.link = this.link;

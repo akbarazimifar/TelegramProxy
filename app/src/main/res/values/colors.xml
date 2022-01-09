@@ -4,15 +4,14 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorWhite">#FFFFFF</color>
-    <color name="colorTransparentWhite">#cccccc</color>
-    <color name="darkgray">#272b34</color>
-    <color name="NotAvaliable">#FF002D</color>
-    <color name="Avaliable">#35B83B</color>
-    <color name="mainBackground">#202020</color>
+    <color name="NotAvaliablee">#FF002D</color>
+    <color name="Avaliablee">#35B83B</color>
+    <color name="mainBackground">#0B0B0B</color>
     <color name="colorOne">#c20d49</color>
     <color name="colorTwo">#ff8700</color>
-    <color name="black">#151515</color>
-    <color name="blackTwo">#0B0B0B</color>
+    <color name="black">#272727</color>
+    <color name="pureblack">#000000</color>
+    <color name="blackTwo">#191919</color>
 
     <integer-array name="androidcolors">
         <item>98</item>
@@ -30,22 +29,22 @@
         <item>127</item>
         <item>18</item>
         <item>97</item>
-        <item>209</item>
+        <item>82</item>
         <item>0</item>
         <item>0</item>
-        <item>268</item>
+        <item>68</item>
         <item>85</item>
         <item>108</item>
-        <item>123</item>
+        <item>103</item>
         <item>92</item>
         <item>99</item>
         <item>100</item>
         <item>81</item>
         <item>90</item>
         <item>14</item>
-        <item>125</item>
+        <item>60</item>
         <item>86</item>
-        <item>261</item>
+        <item>161</item>
         <item>205</item>
         <item>0</item>
         <item>88</item>

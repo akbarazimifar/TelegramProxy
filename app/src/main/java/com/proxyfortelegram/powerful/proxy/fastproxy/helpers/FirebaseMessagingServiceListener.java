@@ -1,4 +1,4 @@
-package com.proxyfortelegram.powerful.proxy.fastproxy;
+package com.proxyfortelegram.powerful.proxy.fastproxy.helpers;
 
 import android.content.Context;
 import android.util.Log;
@@ -12,7 +12,7 @@ import com.google.firebase.messaging.RemoteMessage;
 public class FirebaseMessagingServiceListener extends FirebaseMessagingService {
 
     private Context mContext;
-    private static String TAG = "#MH FCMListener";
+    private static String TAG = "FCMListener";
     @Override
     public void onCreate() {
         super.onCreate();

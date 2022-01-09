@@ -24,7 +24,7 @@
                 android:background="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/sts_color"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
@@ -32,9 +32,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="4dp"
-                    android:text="location"
+                    android:text="Location"
                     android:textColor="@color/colorWhite"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toTopOf="@+id/random"
@@ -43,14 +43,15 @@
 
                 <ImageButton
                     android:id="@+id/btn_share"
-                    android:layout_width="@dimen/_15sdp"
-                    android:layout_height="@dimen/_15sdp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
                     android:background="?attr/selectableItemBackground"
                     android:baselineAlignBottom="false"
+                    android:padding="@dimen/_6sdp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/sharepro"
+                    android:src="@drawable/sharelist"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -71,9 +72,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginBottom="24dp"
+                    android:layout_marginBottom="4dp"
                     android:gravity="left"
-                    android:text="publish"
+                    android:text="Publish"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toTopOf="@+id/status"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Status"
                     android:textColor="@color/colorWhite"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toTopOf="@+id/btn_teleg"
@@ -93,7 +106,7 @@
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <ImageView
-                    android:id="@+id/imgc"
+                    android:id="@+id/flag"
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_20sdp"
                     android:layout_marginEnd="12dp"
@@ -103,19 +116,21 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:srcCompat="@drawable/earth" />
 
+                <ImageView
+                    android:id="@+id/sts_color"
+                    android:layout_width="@dimen/_5sdp"
+                    android:layout_height="@dimen/_5sdp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="3dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="@+id/status"
+                    app:layout_constraintStart_toEndOf="@+id/status"
+                    app:layout_constraintTop_toTopOf="@+id/status"
+                    app:srcCompat="@drawable/off">
+
+                </ImageView>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <LinearLayout
-                android:id="@+id/sts_color"
-                android:layout_width="5dp"
-                android:layout_height="0dp"
-                android:background="@color/colorOne"
-                android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
